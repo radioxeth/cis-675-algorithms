@@ -288,3 +288,94 @@ function sumArray(arr)
 > Q: If f(x) is &Theta;(g(x)), does that mean that f(x) and g(x) are the same function?
 > `f(x)=O(g(x))` and `g(x)=O(f(x))`
 > A: *No*
+
+> A: <code>f(x)=1/2x<sup>2</sup>-x</code>
+> <code>g(x)=x<sup>2</sup></code>
+> `############`
+> <code>m<sub>1</sub>=1</code> guess m1=1
+> <code>1/2x<sup>2</sup>-x &le; x<sup>2</sup></code>
+> <code>1/2x-1 &le; x</code>
+> <code>-1 &le; 1/2x</code>
+> <code>-2 &le; x</code>
+> <code>x<sub>0</sub> &gt; -2</code>
+> `#############`
+> try <code>m<sub>2</sub>=4</code>
+> <code>x<sup>2</sup> &le; 4(1/2x<sup>2</sup>-x)</code>
+> <code>x &le; 2x-4</code>
+> <code>4 &le; x</code>
+> `##############`
+> **m1=1 and m2=4, with x&gt;4 for &Theta;(n)**
+
+
+**prof's answer**
+> <code>f(x)=x<sup>2</sup></code>
+> <code>f(x)=2x</code>
+> `f(x)=O(g(x))`
+> <code>f(x)&le;M g(x)</code> for x &gt; x<sub>0</sub>
+> need to find m & x0 such that this is true.
+> set m=1 and x0=1
+> to prove g(x)=O(f(x))
+> m=3, x0=1 for x>1
+
+### Summary
+|notation|interpretation|
+|:-:|:-:|
+|`f(x)=O(g(x))`| f(x) is asymptotically bounded above by g(x)|
+|`f(x)=o(g(x))`| g(x) grows much faster than f(x)|
+| <code>f(x)=&Theta;(g(x))</code>| f(x) and g(x) grow at roughly the same rate|
+| <code>f(x)=&Omega;(g(x))</code>| f(x) is bounded by below by g(x)|
+
+### Big-O Notation in Practice
+- **simplification rules**
+  - Only pay attention to the dominant terms x<sup>3</sup> more important than x<sup>2</sup>.
+  - Don't include constants in your big-O expression.
+
+### Big-O Notation and Limits
+> *Theorem*: Let `f(x)` and `g(x)` be real-valued functions
+
+
+Let $L=\lim_{x\to\infty}\frac{f(x)}{g(x)}$
+> 1. <code>L=0, f(x)=o(g(x)) and f(x)=O(g(x))</code>
+> *g(x) is growing much faster than f(x)*
+> 2. <code>L=&infin;, g(x)=o(f(x)) and f(x)=&Omega;(g(x))</code>
+> *f(x) is growing much faster than g(x)*
+> 3. <code>0&lt;L&lt;&infin;, f(x)=&Theta;(g(x)) and f(x)=O(g(x))</code>
+> *f(x) is growing at the same rate as g(x)*
+
+### L'Hopital's Rule
+What if f(x) and g(x) both = 0 or &infin; in the limit?
+
+*L'Hopital's Rule*
+If $\lim_{x\to\infty}f(x) = \lim_{x\to\infty}g(x) = 0 || \infty$, then $\lim_{x\to\infty}\frac{f(x)}{g(x)}=\lim_{x\to\infty}\frac{f'(x)}{g'(x)}$
+*as long as the latter limit exists*
+
+
+#### Example
+> Q. What is the asymptotics relationship between `f(x)=x^2` and `g(x)=2^x`?
+> A.
+*Using L'Hopital's Rule...*
+$L=\lim_{x\to\infin}\frac{f(x)}{g(x)}$
+$\lim_{x\to\infin}\frac{x^{2}}{2^{x}}=\frac{\infin}{\infin}$
+$\lim_{x\to\infty}\frac{f'(x)}{g'(x)}=\frac{2x}{ln(2)2^{x}}=\frac{\infin}{\infin}$
+$\lim_{x\to\infty}\frac{f''(x)}{g''(x)}=\frac{2}{ln^{2}(2)2^{x}}=\frac{2}{\infin}=0$
+> <code>L=0, f(x)=o(g(x)) and f(x)=O(g(x))</code>
+> <code>x<sup>2</sup>=o(2<sup>x</sup>)</code>
+> `g(x)` is growing much faster than `f(x)` as we can see.
+
+#### Example
+> Q. Find a function `g(x)` such that <code>f(x)=5x<sup>4</sup>+3x<sup>2</sup>+10000</code> is `O(g(x))` with proof.
+> A. 
+> *claim*: $g(x)=x^{4}$ is a function such that $5x^{4}+3x^{2}+10000$=O(g(x))
+> *proof*: Using the *limit theorem*...
+> $\lim_{x\to\infin}\frac{f(x)}{g(x)}=\lim_{x\to\infin}\frac{f5x^{4}+3x^{2}+10000}{x^{4}}=\frac{\infin}{\infin}$
+> *using L'Hoptial's rule...*
+> $\lim_{x\to\infin}\frac{f^{4}(x)}{g^{4}(x)}=5$
+> Since the limit is 0&lt;L&lt;&infin;, we have proven that g(x) is at the same rate as f(x) than f(x), thus f(x)=O(g(x)) and f(x)=&Theta;(g(x))
+
+
+### Some running time functions that computer scientists like
+- polynomial time: $O(n^{4}),O(n^{2})$
+- logarithmic: $O(log(n))$
+- quasilinear: $O(n*log(n)$ *fairly common*
+- sublinear: $O(n^{\frac{1}{2}})$ *this is the best!*
+- exponential: $O(2^{x})$ *Very bad! Often indicates something that is basically brute force...*
