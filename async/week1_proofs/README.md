@@ -1,10 +1,19 @@
 # Week 1 Proof Techniques, Asymptotic Analysis, and Recurrence Relations
 
+- [Home](/README.md#async-table-of-contents)
+- [1.1 Weekly Introductoin](#11-weekly-introduction)
+- [1.2 Course Introduction](#12-course-introduction)
+- [1.4 Proof Techniques](#14-proof-techniques)
+- [1.5 Sorting Example](#15-running-time-analysis)
+- [Week 1 Live Session](#week-1-live-session)
+
 ## 1.1 Weekly Introduction
+([top](#week-1-proof-techniques-asymptotic-analysis-and-recurrence-relations))
 - Review of proof techniques (including induction)
 - Review of running time analysis, including big-O notation, recurrence relations, and the master theorem
 
 ## 1.2 Course Introduction
+([top](#week-1-proof-techniques-asymptotic-analysis-and-recurrence-relations))
 
 ### Course Topics
 - Analyzing running time of algorithms
@@ -19,9 +28,8 @@
   - P vs NP
   - Reducitons and NP-completeness
 
-## 1.3 Self Introduction
-
 ## 1.4 Proof Techniques
+([top](#week-1-proof-techniques-asymptotic-analysis-and-recurrence-relations))
 
 ### Proofs
 
@@ -136,6 +144,7 @@
 
 
 ## 1.5 Running Time Analysis
+([top](#week-1-proof-techniques-asymptotic-analysis-and-recurrence-relations))
 
 ### Why Analyze Running Time?
 - Suppose you've created a new algorithm
@@ -379,3 +388,38 @@ $\lim_{x\to\infty}\frac{f''(x)}{g''(x)}=\frac{2}{ln^{2}(2)2^{x}}=\frac{2}{\infin
 - quasilinear: $O(n*log(n)$ *fairly common*
 - sublinear: $O(n^{\frac{1}{2}})$ *this is the best!*
 - exponential: $O(2^{x})$ *Very bad! Often indicates something that is basically brute force...*
+
+# Week 1 Live Session
+([top](#week-1-proof-techniques-asymptotic-analysis-and-recurrence-relations))
+
+Office hours - Friday 4pm pst, Saturday, and Sunday
+Exams are open-note open-books
+
+Direct Proof
+- combining axioms, theorems, proofs, etc
+- prove that the product of two even integers is even
+$n=2k$
+$2k_1*2k2+2=4(k_1*k_2)$
+
+Proof by contradiction.
+Start with a contradictory statement
+
+Proof by induction
+Start with a base case P(1), then prove n+1
+
+$\sum_{i=1}^{\infin} $
+
+Proof by example
+Just provide an example
+
+
+**runtime analysis**
+Hidden mark of chain
+  - can take a long time depending on the algorithm, even with a small set of data
+
+  for $x>x_0$
+  $f(x)<=M*g(x)$
+
+
+  big &Theta;
+  
