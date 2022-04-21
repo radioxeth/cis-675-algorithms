@@ -1,13 +1,23 @@
 # Week 2: The Master Method, Divide and Conquer, Sorting
 
+- [Home](/README.md#async-table-of-contents)
+- [2.1 Weekly Introductoin](#21-weekly-introduction)
+- [2.2 Recurrence Relations](#22-Recurrence-Relations)
+- [2.3 The Master Method](#23-The-Master-Method)
+- [2.4 Divide and Conquer](#24-Divide-and-Conquer)
+- [2.5 Sorting](#25-Sorting)
+- [Week 2 Live Session](#week-2-live-session)
+
 ## 2.1 Weekly Introduction
+([top](#week-2-the-master-method-divide-and-conquer-sorting))
 ### Contents
 - Recurrence relations
 - The master method for solving recurrence relations
 - Divide-and-conquer algorithms
 - Sorting
 
-## 2.2 Exercise: Recurrence Relations
+## 2.2 Recurrence Relations
+([top](#week-2-the-master-method-divide-and-conquer-sorting))
 - **recurrence relation** is an euqation that recursively defines a function's values in terms of earlier values
 - It can be very useful for analyzing an algorithm's running time!
 
@@ -101,6 +111,7 @@ $T(n+1)=c_2+T(n)=(n+1)c_2+c_1$, which is what we wanted. &square;
 > 
 
 ## 2.3 The Master Method
+([top](#week-2-the-master-method-divide-and-conquer-sorting))
 Suppose $T(n)=aT(\lceil\frac{n}{b}\rceil)+O(n^d)$
 > $a$ controls the number of sub problems
 > $b$ tells you how big the sub problems are
@@ -135,7 +146,7 @@ $log_2(1)=0$
 $T(n)=O(n^0log(n))=O(log(n))$
 
 ## 2.4 Divide and Conquer
-
+([top](#week-2-the-master-method-divide-and-conquer-sorting))
 ### Overview
 1. Break the problem into smaller problems
 2. Recursively solve the problems
@@ -284,6 +295,7 @@ d= 1
 
 
 ## 2.5 Sorting
+([top](#week-2-the-master-method-divide-and-conquer-sorting))
 
 Goal: sort an array
 - Worst case running time? When does this happen>
@@ -334,3 +346,12 @@ void bubbleSort(int arr[], int n)
 *Daniel Shannon*
 > There would be $n!$ leaf nodes.
 > For a binary tree, the minimum depth would be $O(nlog(n))$.
+
+## Week 2 Live Session
+([top](#week-2-the-master-method-divide-and-conquer-sorting))
+
+### Recurrence Relations
+
+have a basic step and a recurrence step.
+
+In recurrence relations the base case is how the recurrence ENDS! Just like in recurrence.

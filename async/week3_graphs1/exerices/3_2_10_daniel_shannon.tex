@@ -1,0 +1,58 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tikz,pgfplots}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title{%
+Design and Analysis of Algorithms\\
+\large Graphs 3.2.8
+}
+\author{Daniel Shannon}
+\date{April 20th, 2022}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\begin{quote}
+    Suppose you are given a graph G in adjacency matrix form.
+
+    Goal: Given a vertex u, output all other vertices that are reachable from u (in the same component).    
+\end{quote}
+You could store a hashtable of the nodes and traverse the graph in a depth first manner. Each time you come to a node, add it to the hash table.
+
+\begin{lstlisting}
+void find_nodes(vertex U, graph G)                  
+{
+    stack = new stack()
+    while (stack is not empty){
+        traverse node list push undiscovered nodes to stack
+        search each node for more undiscovered nodes recursively
+        pop from stack and print the node if it hasn't been marked as discovered in the hash table.
+    }
+    return;
+}
+\end{lstlisting}
+\end{document}
