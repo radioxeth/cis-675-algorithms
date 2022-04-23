@@ -1,4 +1,4 @@
-# CIS 675 Desing and Analysis of Algorithms | *Syracuse University*
+# CIS 675 Design and Analysis of Algorithms | *Syracuse University*
 ## cis-675-algorithms
 ### Design and Analysis of Algorithms Table of Contents
 
