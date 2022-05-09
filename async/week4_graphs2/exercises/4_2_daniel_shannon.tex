@@ -1,0 +1,93 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large Graphs 3: Depth-First Search
+}
+\author{Daniel Shannon}
+\date{April 27th, 2022}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\section*{4.2.2}
+
+\begin{quote}
+Does the BFS tree always give you the shortest path from the starting node to every other node?
+How can we modify the BFS pseudocode to keep track of what the shortest paths actually are? Prove or give a counterexample.
+\end{quote}
+
+\textbf{Claim:} The BFS tree always will give the shortest path tree.
+
+\textbf{Proof:} \emph{by induction...} Say we have node $u$ on the queue $Q$ with a distance of $k=0$ from the origin, $u$. 
+All connected nodes $v$ have a distance of $k=1$ from $u$. 
+\emph{Induction:} When we push the neighbors of $v$, $v'$, onto $Q$, $v'$ is $k+1$ distance from $u$. 
+So each additional node is the shortest path from $u[k]$ to $u[k+1]$.
+
+We can modify the pseudo code by adding a distance property to each node as we push it to the queue.
+
+\section*{4.2.4}
+
+\begin{quote}
+How can we modify the code to keep track of what the edges on the shortest path are?
+\end{quote}
+
+
+\begin{lstlisting}
+for all u in V:
+  dist(u)=infin
+  //HERE we can initialize a vector of edges,
+  path(u)=[]
+
+dist(s)=0
+Q=[s] (queue containing just s)
+while Q is not empty:
+  u = eject(Q)
+  for all edges (u,v) in E: //put all neighbors on queue
+    if dist(v) == infin:
+      inject(Q,v)
+      dist(v)=dist(u)+1 //distance to neighbor=1 + distance to current node
+      //HERE we can populate child node v, with the edges to u,
+      path[u]=path[u]+(u,v)
+\end{lstlisting}
+
+On line 4 we can initialize a vector of edges to null for each node
+On line 15 we can populate the child node with its parent node.
+
+\section*{4.3.2}
+
+\begin{quote}
+What does this even mean? Any examples of real-world graph with negative edges?
+\end{quote}
+
+Say we're hiking and rather than only examining distance between nodes, we include elevation. 
+Perhaps we could say positive weights are downhill or flat and negative weights are uphill.
+Uphill actively works against you and downhill is a lot easier.
+
+\end{document}

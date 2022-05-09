@@ -1,0 +1,61 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 4.3 Dijkstra's Algorithm
+}
+\author{Daniel Shannon}
+\date{April 28th, 2022}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{4.3.2}
+
+\begin{quote}
+What does this even mean? Any examples of real-world graph with negative edges?
+\end{quote}
+
+Say we're hiking and rather than only examining distance between nodes, we include elevation. 
+Perhaps we could say positive weights are downhill or flat and negative weights are uphill.
+Uphill actively works against you and downhill is a lot easier.
+
+\section*{4.3.4}
+
+\begin{quote}
+Does Dijkstra's algorithm work when there are negative edges? If yes, explain. If no, give a counterexample.
+\end{quote}
+
+No, Dijkstra's algorithm does not work with negative edges because with Dijkstra's, we 
+must go through nodes that are between $u$ and $v$. We derived Dijkstra's from assuming that 
+a weighted path could be represented as a series of several weight=1 paths. How can we insert a negative number 
+of nodes along a path that has a negative weight? I don't think we can...
+
+\end{document}

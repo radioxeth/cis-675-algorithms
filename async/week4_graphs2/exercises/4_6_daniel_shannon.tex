@@ -1,0 +1,70 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 4.6 Heaps
+}
+\author{Daniel Shannon}
+\date{April 29th, 2022}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{4.6.2}
+
+\begin{quote}
+    Dijkstra's algorithm uses a priority queue:
+
+    Insert
+    Decrease-key
+    Delete-min
+    
+    Suppose we implement as an array where A[i] holds key of node i.
+    
+    What is the running time for delete-min? For decrease-key?
+\end{quote}
+
+Delete-min would have a running time $O(|V|)$ because we need to search and find $min(|V|)$.
+Decrease-key has a constant running time $O(1)$ because we can easily lookup the $i_{th}$ value 
+of an array.
+
+
+\section*{4.6.4}
+
+\begin{quote}
+    What is the running time of a single insert operation?
+    Similar implementation for decrease-key: do you see why?
+\end{quote}
+
+Insert has $O(log(n))$ runtime because it can make as many swaps as the height of the tree, $log_2(n)$.
+Decrease key would also have $O(log(n))$ runtime because first be need do find the min - $O(log(n))$ - 
+then we need to do the swaps after we adjust the  $O(log(n))$.
+
+\end{document}

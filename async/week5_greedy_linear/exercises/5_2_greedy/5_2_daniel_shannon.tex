@@ -1,0 +1,141 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 5.2 Greedy Algorithms
+}
+\author{Daniel Shannon}
+\date{May 3rd, 2022}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{5.2.2}
+
+\begin{quote}
+    Suppose we find a minimum spanning tree T in a graph.
+
+    Suppose we then add 1 to the weight of every edge in the graph.
+    
+    Is T still a minimum spanning tree? Why or why not?
+\end{quote}
+
+Yes T is still a minimum spanning tree because adding 1 to the weight will not
+\begin{enumerate}
+    \item create cycles
+    \item change the ordering of the edge weights
+\end{enumerate}
+
+\section*{5.2.4}
+
+\begin{quote}
+    Assign the following strings:
+\begin{itemize}
+    \item A: 0
+    \item B: 00
+    \item C: 01
+    \item D: 1
+\end{itemize}
+Then AABDC = 0000101
+
+What is the problem with this?
+\end{quote}
+
+The problem is that C could be mistaken for AD, or B could be AA, or BC could be AAAD etc.
+\newpage
+\section*{5.2.6}
+\begin{quote}
+    \begin{itemize}
+        \item You are given a collection of items
+        \item Each item i has a weight $w_i$ and value $v_i$
+        \item You have a bag that can hold a total weight of $W$
+        \item You want to maximize the value of the items in your bag
+        \item Design an algorithm to decide which items to pick
+    \end{itemize}
+\end{quote}
+
+My Solution
+\begin{lstlisting}
+    Procedure Knapsack(f)
+    Input: array f[1...n] of items (v_i,w_i)
+    Output: An encoding tree with n leaves
+
+    Let H be a priority queue of v_i:w_i ratios (r_i), ordered by r_i
+    for i = 1 to n: insert(H,i)
+    for k = k+1 to 2n-1:
+      i=deletemin(H) j=deletemin(H)
+      create a node numbered k with children i,j
+      f[k]=f[i]/f[j]
+      insert(H,k)
+\end{lstlisting}
+
+Solution
+\begin{enumerate}
+    \item sort all items by $r_i$
+    \item add items in order until space is gone
+    \item at the end if can't add a full item add as much as you can
+    \item 
+\end{enumerate}
+\newpage
+\section*{5.2.8}
+
+\begin{quote}
+    Same as before, except you cannot take fractional items.
+    Does your algorithm always find the optimal solution? Explain why, or give a counterexample.
+\end{quote}
+
+No this does not find the optimal solution. Rather than taking a portion of the next smallest $r_i$,
+we can take several less valuable items with less weight. So we could skip items until we find ones that fit!
+
+\section*{5.2.10}
+
+\begin{quote}
+    \begin{itemize}
+        \item Given a set of elements $B$, and sets $S_1, S_2...S_k$ that are subsets of $B$
+        \item How many sets $S_i$, do you need to pick so that every element from $B$ appears in at least one selected set?
+    \end{itemize}
+    Can you develop a greedy algorithm to solve the set cover problem?
+\end{quote}
+
+\begin{enumerate}
+    \item select a starting town
+    \item determine which towns are out of range, and mark as unexplored
+    \item place a school in the current town
+    \item recursively explore the out of range towns
+\end{enumerate}
+
+\section*{5.2.12}
+
+\begin{quote}
+    Is the greedy solution optimal? In other words, does it always find the correct solution? Explain.
+\end{quote}
+
+This is not optimal, two sets could be within range so it is possible that tht we over allocated schools.
+
+\end{document}

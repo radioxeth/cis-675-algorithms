@@ -1,7 +1,7 @@
 # Week 3: Graphs Part 1
 
 - [Home](/README.md#async-table-of-contents)
-- [3.1 Weekly Introductoin](#21-weekly-introduction)
+- [3.1 Weekly Introductoin](#31-weekly-introduction)
 - [3.2 Graphs](#32-graphs)
 - [3.3 Depth-First Search (DFS)](#33-depth-first-search-dfs))
 - [3.4 Directed Acyclic Graphs (DAGs)](#34-directed-acyclic-graphs)
