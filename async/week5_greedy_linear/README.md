@@ -6,10 +6,6 @@
 - [Week 5 Live Session](#week-5-live-session)
 
 ## Questions
-- Why use BFS over DFS or visa versa?
-  - BFS is shortest path
-  - DFS is exploring paths
-- Any analaysis to be done comparing the DFS tree to the BFS tree?
 
 ## 5.1 Weekly Introduction
 ([top](#week-5-greedy-algorithms-linear-programming))
@@ -80,3 +76,18 @@ Rules
 - How many sets Si, do you need to pick so that every element from B appears in at least one selected set?
 
 ## Week 5 Live Session
+- Midterm 2
+  - Graphs
+  - Greedy algorithms
+  - Linear programing
+
+When building algorithms, always check for invariant conditions to crack the algo faster.
+
+In napsack problem with fractional items,
+The relationship between items is the invariant part. Adding the item with the highest value to weight ratio is the best option to
+
+CAR Hoare
+- invariants!! 
+- quicksort
+Dijkstra
+- *Discipline of Programming*
