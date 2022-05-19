@@ -21,9 +21,9 @@
 ## Graphs
 - Graph data structure
   1. **Nodes/vertices**
-     - Let $V={v_1,v_2,...}$
+     - Let $$V={v_1,v_2,...}$$
   2. **Edges/links**
-     - let $E={e_1,e_2,...}$
+     - let $$E={e_1,e_2,...}$$
      - an edge is usually written as $(v_1,v_2)$ where $v_1$ and $v_2$ are vertices
 - can be weighted: different edges have different strengths
 - can be directed: edges point in one direction
