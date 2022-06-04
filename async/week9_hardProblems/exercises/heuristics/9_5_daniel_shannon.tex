@@ -1,0 +1,77 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 9.5 Heuristics
+}
+\author{Daniel Shannon}
+\date{June 3rd, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{9.5.2.a}
+\begin{itemize}
+    \item We have an N x N chessboard.
+    \item Queens can move across rows, across columns, or diagonally.
+    \item We want to place N queens on the chessboard so that no two queens can threaten each other.
+    \item Design a reasonable local search algorithm for this problem. What is the objective function? What is a "move"?
+\end{itemize}
+
+We can start with all of the queens in randomized locations. All of the queens are nodes connected with negative
+weights if they are in danger. We can move the queens and re-assign weights to the paths if they are not in danger to be positive.
+Then we want to find the maximum weight of the Hamiltonian path by adjusting the location of the queens.
+
+\section*{9.5.2.b}
+\begin{itemize}
+    \item Our salesman begins at one node on the graph and must visit every other node exactly once, and then return to the starting point.
+    \item Edges have weights, and we want to find the minimum cost cycle for the salesman.
+    \item Design a reasonable local search algorithm for this problem. What is the objective function? What is a "move"?
+\end{itemize}
+
+Objective Function: Unexplored nodes with the least weight.
+Move: Mark the least weigted node as explored. Or we can make tiny, least weighted circles , expanding and keeping the budget to a minimum.
+\newpage
+\section*{9.5.4}
+\begin{itemize}
+    \item Our salesman begins at one node on the graph and must visit every other node exactly once and then return to the starting point.
+    \item Edges have weights, and we want to find the minimum cost cycle for the salesman.
+    \item Design a reasonable local search algorithm for this problem. What is the objective function? What is a "move"?
+\end{itemize}
+
+\end{document}
