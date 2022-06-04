@@ -11,3 +11,9 @@
 - Examples of dynamic programming, including edit distance
 
 ## 6.1 Introduction to Dynamic Programming
+
+
+## Week 6 Live Session
+- Dynamic programming
+- Never think of the next step,
+  - in dynamic programming, take any random cut of the problem, and assume the solution for the previous problem is already available.

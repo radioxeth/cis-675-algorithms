@@ -1,0 +1,136 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 6.3 Dynamic Programming Exercises
+}
+\author{Daniel Shannon}
+\date{May 18th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\section*{7.4.2}
+\begin{quote}
+    Suppose you have a binary array.
+
+    You are using it as a counter:
+    \begin{itemize}
+        \item In each increment, increase value by 1.
+        \item e.g. $[0,0,1,1,1,0,1]\rightarrow[0,0,1,1,1,1,0]$
+    \end{itemize}
+    Suppose that it costs \$1 to flip a bit. 
+    
+    Keep a "bank" for each bit.
+    
+    Suppose whenever you flip a bit from $0\rightarrow1$, you pay \$2: \$1 to flip, \$1 to that bit's bank.
+
+    Perform amortized runing-time analysis.
+
+    Start at right. If 0, flip to 1, terminate. If 1, flip to 0, move left and repeat.
+    
+\end{quote}
+\begin{enumerate}
+    \item How many 0$\rightarrow$1 flips per increment?
+    
+    1 flip per increment
+    \item What is the cost per increment?
+    
+    \$2 per increment
+    \item For a 1$\rightarrow$1 flip, how much money is in the bit's bank?
+    
+    \$1 will be in the bit's bank for a 1$\rightarrow$0 flip.
+\end{enumerate}
+
+Amoratized cost \$2 $O(n)$
+
+\newpage
+\section*{7.4.4}
+\begin{quote}
+    Atomic ops=individual flips
+\end{quote}
+\begin{itemize}
+    \item Over $n$ increments, how often do we flip the first bit?
+    
+    $2^n$ times
+
+    Answer: \textbf{n}
+    \item How often do we flip the second bit?
+    
+    $2^{n-1}$
+
+    Answer: \textbf{$\frac{n}{2}$}
+    \item How often do we flip the $k^{th}$ bit?
+    
+    $2^{n-k}$
+    
+    Answer: \textbf{$\frac{n}{2^{k-1}}$}
+    \item What is the total running time?
+    
+    $log(n)$
+
+    Answer: \textbf{$n+\frac{n}{2}+\frac{n}{4}+...\le{2n}$}
+    $O(n)$
+\end{itemize}
+\newpage
+\section*{7.4.6}
+\begin{itemize}
+    \item Suppose you have a different binary counter.
+    \item But now the cost to flip the $k^{th}$ bit is $2^k$ ($k$ starts at 0).
+    \item What is the total running time?
+    \begin{itemize}
+        \item Over $n$ increments, how often do we flip the first bit?
+    
+        $2^n$ times
+
+        Answer: \textbf{n}
+        \item How often do we flip the second bit?
+        
+        $2^{n/2}$
+
+        Answer: \textbf{n/2}
+        \item How often do we flip the $k^{th}$ bit?
+        
+        $2^{n-k}$
+        \item What is the total running time?
+        
+        $log(n)$
+
+        Answer: \textbf{$n+2\frac{n}{2}+4\frac{n}{4}+...=n+n+n...=O(nlog(n))$}
+    \end{itemize}
+\end{itemize}
+\end{document}

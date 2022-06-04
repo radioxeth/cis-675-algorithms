@@ -1,0 +1,78 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 8.3 Reductions
+}
+\author{Daniel Shannon}
+\date{May 25th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{8.3.2}
+\begin{quote}
+\begin{itemize}
+    \item Hamiltonian cycle: In an undirected graph, is there a cycle that passes through every node exactly once?
+    \item Hamiltonian path: Given vertices s and t, is there a path from s to t that passes through every node exactly once?
+    \item Show how to reduce Hamiltonian path to Hamiltonian cycle (i.e., if we have an algorithm for the Hamiltonian cycle problem, can we use that to solve the Hamiltonian path problem)?
+\end{itemize}
+\end{quote}
+
+If we have a graph $G$, and we can find a cycle from $s$ to $s$
+such that every node is passed through exactly once, then we can easily find a path in the graph 
+that passes through every node exactly once. If $t$ is the penultimate node on the on the cycle found
+from $s$ to $s$, then $s$ to $t$ can be found easily becaues the path lies on the cycle.
+
+\section*{8.3.4}
+\begin{quote}
+\begin{itemize}
+    \item Vertex cover: A vertex cover in a graph is a set S of nodes such that every edge is touching at least one node in S. Find the smallest vertex cover.
+    \item Independent set: Given a graph, find the largest set of vertices S such that no two vertices in S are connected to each other.
+    \item Exercise: Reduce independent set to vertex cover (I.e., if we have an algorithm for finding a vertex cover with some maximum size, can we use this to find an independent set of some minimum size?).
+\end{itemize}
+\end{quote}
+
+Independent set has no known polynomial solution for general graphs. We have an 
+independent set of vertices $S$ such that no two vertices in $S$ are connected to each other.
+Each vertex has an edge connected to it, and from the edges that make up \textbf{Independent Set},
+we can try to create a \textbf{Vertex Cover} from the edges. Since the edges in \textbf{Vertex Cover}
+are necessarily the same edges in \textbf{Independent Set}, we can reduce the \textbf{Independent Set}
+to \textbf{Vertex Cover}.
+
+\end{document}

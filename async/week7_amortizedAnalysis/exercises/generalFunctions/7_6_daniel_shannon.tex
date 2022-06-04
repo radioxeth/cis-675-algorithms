@@ -1,0 +1,85 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 6.6 General Functions
+}
+\author{Daniel Shannon}
+\date{May 19th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{7.6.2}
+\begin{quote}
+\begin{itemize}
+    \item Let $f(k)$ be the running time of the $k^th$ operation.
+    \item Consider algorithms with the following running times:
+    \begin{itemize}
+        \item $f(k)$ = the largest power of 2 that divides $k$
+        \item $f(k)=k$ if $k$ is a power of 2, $f(k)=1$
+    \end{itemize}
+    \item Calculate amortized running time for each algorithm.
+\end{itemize}
+\end{quote}
+\begin{itemize}
+    \item $f(k)$ = the largest power of 2 that divides $k$
+    $$1,2,1,4,1,2,1,8,1,2$$
+    $$\frac{n}{3}+\sum_{k=0}^{n}\frac{k}{2}$$
+    $$...?$$
+    
+    $n$ amortized runtime
+
+    \item $f(k)=k$ if $k$ is a power of 2, $f(k)=1$
+    
+    $$1,2,3,4,5,6,7,8$$
+    $$1,1,3,1,5,6,7,1$$
+    $$\frac{n}{1}+\sum_{k=0;k*=2}^{n}k$$
+    $$nlog(n)?$$
+    
+
+\end{itemize}
+
+\subsection*{Solution}
+\begin{itemize}
+    \item $f(k)$ = the largest power of 2 that divides $k$
+    $$1\frac{n}{2}+2\frac{n}{4}+4\frac{n}{8}+2\frac{n}{4}+...+\frac{2^{log(n)}}{2}*\frac{n}{2^{log(n)}}+n$$
+    $$\frac{n}{2}+\frac{n}{2}+\frac{n}{2}+...+\frac{n}{2}+n$$
+    $$\frac{n}{2}log(n)+n$$
+\end{itemize}
+\end{document}

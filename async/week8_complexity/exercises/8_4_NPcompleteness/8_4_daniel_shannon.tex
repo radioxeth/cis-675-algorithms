@@ -1,0 +1,72 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 8.4 NP-Completeness
+}
+\author{Daniel Shannon}
+\date{May 26th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{8.3.2}
+\begin{quote}
+\begin{itemize}
+    \item MaxClique: A clique in a graph is a set of nodes $S$ such that every node in $S$ is connected to every other node in $S$.
+    \item Given a graph, what is the largest clique that it contains?
+    \item Show that MaxClique is NP-hard by reducing 3SAT to MaxClique.
+    \item 3SAT$\rightarrow{MC}$
+\end{itemize}
+
+\end{quote}
+
+1. 3SAT is NP-Complete
+2. 3SAT reduces to MaxClique in a similar way to 2SAT reduces to 3SAT.
+
+$(x\lor{y}\lor{y}\lor{z}\lor{...})\land{(x\lor{y}\lor{y}\lor{z}\lor{...})}\land{(x\lor{y}\lor{y}\lor{z}\lor{...})}$
+
+I'm really blanking on this. What I think we would do is break out
+3SAT into groups of $\lor$ statements $(x\lor{y}\lor{y}\lor{z}\lor{A})(x\lor{y}\lor{y}\lor{z}\lor{A})\lor{(x\lor{y}\lor{y})}\lor{({z}\lor{A})}$
+
+
+Is this conversion polynomial time? Yes
+Is getting the solution back polynomial? Yes
+If there is a solution to SAT3 is there a solution to MC?
+Vica versa?
+\end{document}

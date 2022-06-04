@@ -1,0 +1,100 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 9.3 Dealing with hard problems
+}
+\author{Daniel Shannon}
+\date{May 25th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{9.3.2}
+\begin{itemize}
+    \item Brute force solution: Try every possivle solution and find the best.
+    \item How long does this take for the following? Assume problem size is N.
+    \begin{itemize}
+        \item Minimum Spanning Tree
+        $E^N$
+        \item Traveling salesman
+        $N!$
+        \item SAT
+        $2^N$
+    \end{itemize}
+\end{itemize}
+
+\section*{9.3.4}
+\begin{itemize}
+    \item A Hamiltonian cycle is a cycle that visits every vertex exactly once.
+    \item Brute force: n! possible cycles.
+    \item Design a more efficient backtracking algorithm.
+\end{itemize}
+
+Similar to backtracking for SAT, we can start searching at a node and mark each neighboring node
+as explored or not. If the explored node connects with another explored node, we stop searching.
+I think maybe the tallest branch with a height of V or V-1 of the resulting tree would a the Hamiltonian cycle.
+
+\section*{9.3.6}
+\begin{itemize}
+    \item You have an N x N chessboard.
+    \item You want to place N queens on the chessboard so that no two queens are in the same row or column.
+    \item Brute force: $N^{2N}$
+    \item Design a more efficient backtracking algorithm.
+\end{itemize}
+
+We could start at a vertex $v$ and begin a search. 
+Any vertex that is directly in line or diagonal to the current vertex can be a termination
+point on the tree. Now how to do this optimally...? Maybe include back, cross, and forward edges.
+
+
+\section*{9.3.8}
+\begin{itemize}
+    \item You are given a weighted graph.
+    \item Find a least-cost cycle that visits every node exactly once.
+    \item In the naïve brute-force algorithm, how many possible cycles are there?
+    \item Design a branch-and-bound solution to the traveling salesman problem.
+\end{itemize}
+
+This is similar to the hamiltonian cycle problem, but with each node bound by a budget.
+Starting at $v_i$, we can explore each of the paths and determine the next node $v_{i+1}$
+and determine which will use the least of the available budget. So at each step we are 
+looking for the smallest budget to be removed and we can remove branches of the search tree.
+
+
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 6.7 Multipop
+}
+\author{Daniel Shannon}
+\date{May 20th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{7.7.2}
+\begin{quote}
+\begin{itemize}
+    \item Analyze running time for a sequence of $n$ Push, Pop, Multipop operations
+    \item Standard Analysis:
+    \begin{itemize}
+        \item Push takes $O(1)$
+        \item Pop takes $O(1)$
+        \item MultiPop takes $O(k)$
+        \item Worst case: $n$ MultiPop operations = $O(n^2)$
+    \end{itemize}
+    \item Calculate amortized running time for each algorithm.
+\end{itemize}
+\end{quote}
+Each push and pop costs 1 credit. In order to be able to pop, we have to have pushed onto the stack first.
+So when we push, we pay ahead using a credit for a very cheap operation. Then when we pop we have credit in the bank
+from pushing. Averaged over n elements of Multipop, the runtime of MultiPop is $O(k)/k$ since we average over
+the whole instruction set, from push to pop.
+
+\subsection*{Solution}
+\begin{itemize}
+    \item Push: \$1+\$1 to bank
+    \item Pop: \$0 to bank, take \$1 from the bank
+    \item MultiPop: \$0 to bank, take \$k from bank
+\end{itemize}
+$$\$2N$$
+
+\end{document}
