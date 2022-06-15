@@ -1,0 +1,69 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 10.2 Useful to Your Work
+}
+\author{Daniel Shannon}
+\date{June 10th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\section*{10.2}
+\begin{quote}
+    please submit examples of how concepts from this class might be useful to problems you have seen in your work or in other projects
+\end{quote}
+
+One of my favorite parts of this class has been all of the "ah ha" moments when making connections with my work.
+I am currently a senior software engineer at Enverus, which is an Enegery data SaaS company. I have built many applications that 
+allow users to derive information from data with the algorithm abstracted away from them.
+
+One suite of software I helped build was OptiFlo. OptiFlo is a network flow problem! The idea is that in North America,
+there are Supply and Demand regions of oil and gas, and there are limited ways to move these crude products around.
+How do we best move and distribute oil from where it is being produced to where it is needed. There are many constraints
+on the transportation. For instance, gas can only be moved via pipelines, and those pipelines have \textbf{capacity} and costs
+associated with them known as tarrifs, which are additional \textbf{constraints}. I did not program the algorithm, which uses an engine called GAMS,
+but I did build the UI and service that allows users to update constraints and visualize the network flow :D.
+
+More recently, I have been working in a distributed database called Kinetica. Kinetica is a cluster of machines that shard and distribute
+datasets across a DAG. I'm not too familiar with Kinetica as it is not my primary job responsibility, but I often hear of certain joins
+bringing data to the head node, and how other queries can cause undesireable resharding and projections. Knowing that Kinetica is likely a graph, or DAG in nature,
+I have a better appreciation for why these things \emph{might} be happening and how to think about the datasets we put into the database
+knowing the constraints of DAGs and how to leverage them.
+
+\end{document}

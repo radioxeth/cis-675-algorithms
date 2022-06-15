@@ -1,0 +1,66 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 10.4 Clustering
+}
+\author{Daniel Shannon}
+\date{June 10th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\section*{10.4.2}
+\begin{quote}
+    Design a local search algorithm for finding clusters.
+\end{quote}
+You could pick k random points in the data. Then find the scores off all the other points for each cluster k. If we imagine scores of clusters as a topology, as we get further away from the selected the score will fall, so maybe we can take the topologies of each random cluster and see where the "level" point is. There would be a rim of all the points that intersect and who's scores even out. Then we can start adjusting the random points until the rim of each cluster encompasses the right number of points.
+
+\section*{10.4.4}
+    \begin{itemize}
+        \item Do the results you get from running the k-means algorithm depend on your choice of starting point?
+        \item Either come up with an explanation for why not, or come up with an example.
+    \end{itemize}
+
+Intuitively, yes, the results of the k-means algorithm does depend on the starting point.
+Given a set of $N$ points and $k$ clusters, say we choose $k$ starting points that are all very close to eachother.
+The clusters will move away from eachother as we iterate through the algorithm.
+What if we have an outlier set of points and we choose one of our starting points in that outlier, will it move away from the outlier?
+If we have the same set of points with outliers and we don't choose a starting point in the outlier group, I could see how the outlier might 
+be included in a cluster, but wouldn't be the cluster itself.
+
+\end{document}

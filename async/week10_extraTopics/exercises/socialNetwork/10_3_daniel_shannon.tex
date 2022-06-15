@@ -1,0 +1,75 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\graphicspath{ {./images/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title{%
+Design and Analysis of Algorithms\\
+\large 10.3 Social Network Analysis
+}
+\author{Daniel Shannon}
+\date{June 8th, 2022}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section*{10.3.2}
+\begin{quote}
+  \begin{itemize}
+    \item In a real-world social network, how do we find "communities" of people?
+    \item E.g., the EECS Department, your soccer team, my extended family
+    \item A community is a cluster of nodes: but how do we formalize this?
+    \item If you wanted to find these groups, how would you do it?
+  \end{itemize}
+\end{quote}
+
+As the professor mentioned, my first thoughts drifted towards strongly connected components.
+The issue with applying SCCs to this problem is multiple people from one community could
+be members of another community. So perhaps we need loosely connected components where 
+the cardinality of connections to another community is depended on the number of connections to another loosely connected component.
+
+If the number of connections connecting two loosly connected components is less than both of the 
+components, then maybe that would define two communities. There can be overlap between the communities,
+but there shouldn't be so much overlap that they are one component.
+
+\section*{10.3.6}
+\begin{quote}
+  Suppose you are given an adjacency matrix.
+  How would you calculate the number of common neighbors that two nodes have?
+\end{quote}
+
+I would count the values between the $i_{nodeA}$ and $i_{nodeB}$ row and the $j_{nodeA}$ and $j_{nodeB}$ column. Any values in the column and row should be common neighbors?
+
+\end{document}
